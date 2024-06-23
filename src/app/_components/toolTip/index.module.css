@@ -1,0 +1,15 @@
+.tooltip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99;
+
+    padding: 0.5rem 0.75rem;
+    background-color: var(--COLOR-TRIADIC);
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: opacity 200ms 0 ease-in;
+}

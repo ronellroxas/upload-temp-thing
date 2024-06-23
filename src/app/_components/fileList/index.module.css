@@ -1,0 +1,114 @@
+.fileList {
+    max-width: 30rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-height: 20rem;
+    min-height: 20rem;
+    overflow-y: auto;
+}
+
+.fileListStats {
+    letter-spacing: -0.025em;
+    width: 100%;
+    max-width: 30rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0.25rem 0 0.25rem 0;
+}
+
+.primarySpan {
+    color: var(--COLOR-PRIMARY);
+}
+
+.statItem {
+    display: flex;
+    flex-direction: row;
+    column-gap: 3px;
+    align-items: center;
+    font-size: 0.75rem;
+}
+
+.stat {
+    color: var(--COLOR-PRIMARY);
+    display: flex;
+}
+
+.statLabel {
+    color: var(--COLOR-NEUTRAL);
+    letter-spacing: -0.025em;
+}
+
+.fileRow {
+    position: relative;
+    letter-spacing: -0.025em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    cursor: pointer;
+    padding: 0.5rem 0.25rem;
+    background-color: transparent;
+    border-radius: 0.25rem;
+    transition: background-color 400ms linear, color 300ms linear;
+}
+
+@keyframes overlay-anim {
+    0% {
+        width: 100%;
+        display: block;
+    }
+    100% {
+        width: 0;
+        display: none;
+    }
+
+}
+
+.fileRowOverlay {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    background-color: var(--COLOR-PRIMARY);
+    width: 100%;
+    height: calc(100% - 1rem);
+    animation: overlay-anim 400ms ease-out 100ms 1 forwards;
+}
+
+.fileRow:hover {
+    background-color: var(--COLOR-PRIMARY);
+    color: white;
+}
+
+.fileName {
+    max-width: 25rem;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.fileSize {
+    font-size: 0.75rem;
+}
+
+.fileList::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+.fileList::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px var(--COLOR-NEUTRAL);
+    border-radius: 1rem;
+}
+
+.fileList::-webkit-scrollbar-thumb {
+    background-color: var(--COLOR-PRIMARY);
+    border-radius: 1rem;
+}
+
+@media (max-width: 600px) {
+    .fileList {
+        max-width: 100%;
+    }
+}

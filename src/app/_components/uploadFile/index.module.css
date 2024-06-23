@@ -1,0 +1,50 @@
+.uploadContainer {
+    max-width: 30rem;
+    width: 100%;
+    max-height: 10rem;
+    height: 100vh;
+    border-radius: 0.75rem;
+    border: 1px var(--COLOR-CONTAINER-BORDER) dashed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+    color: inherit;
+
+    background-color: var(--COLOR-CONTAINER);
+    background-image: radial-gradient(
+        var(--COLOR-CONTAINER-BORDER) 1px, 
+        transparent 0);
+    background-size: 15px 15px;
+    background-position: 0 0;
+    animation: container-anim 30s ease-in-out 0s infinite alternate forwards;
+}
+
+@keyframes container-anim {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.uploadContainer:hover {
+    background-color: var(--COLOR-PRIMARY);
+    color: white;
+    background-image: radial-gradient(
+        #92e9dc 1px, 
+        transparent 0);
+    animation-direction: alternate-reverse;
+    transition: 
+        background-color 400ms ease-out, 
+        color 200ms ease-out,
+        background-position 400ms ease-in-out;
+}
+
+@media (max-width: 600px) {
+    .uploadContainer {
+        max-width: 100%;
+    }
+}

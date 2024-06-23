@@ -1,0 +1,222 @@
+.rulesModal {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.modalTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.expiryTitle {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+    align-items: baseline;
+    justify-content: flex-start;
+}
+
+.expirySubtitle {
+    color: var(--COLOR-NEUTRAL);
+    font-size: 0.75rem;
+}
+
+.submitButton {
+    background-color: var(--COLOR-PRIMARY);
+	color: white;
+    border-radius: 1.5rem;
+}
+
+@keyframes backdrop-anim {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.modalBackdrop {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: backdrop-anim 400ms ease-in-out forwards;
+}
+
+@keyframes modal-container-anim {
+    0% {
+        transform: translate(-50%, 200%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.modalContainer {
+    opacity: 0;
+    width: 100%;
+    max-width: 50rem;
+    background-color: white;
+    z-index: 100;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    border-radius: 1rem;
+    letter-spacing: -0.025em;
+    padding: 0.5rem 1rem 5rem 1rem;
+    line-height: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    animation: modal-container-anim 500ms 300ms ease-in-out forwards;
+}
+
+@keyframes rule-subtitle-anim {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.ruleLabel {
+    overflow: hidden;
+    text-wrap: nowrap;
+    animation: rule-subtitle-anim 1000ms ease-out 1 forwards;
+    text-align: start;
+}
+
+@media (max-width: 600px) {
+    .ruleLabel {
+        overflow-x: auto;
+    }
+}
+
+.primarySpan {
+    color: var(--COLOR-PRIMARY);
+}
+
+.closeButton {
+    font-size: 0.75rem;
+    color: var(--COLOR-NEUTRAL);
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.ruleList {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.ruleOption {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--COLOR-PRIMARY);
+    padding:  1rem;
+    border-radius: 0.5rem;
+    row-gap: 0.5rem;
+}
+
+.ruleRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ruleTitle {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@keyframes container-anim {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50% 50%;
+    }
+}
+
+.ruleEnabled {
+    background-color: var(--COLOR-CONTAINER);
+    background-image: radial-gradient(
+        var(--COLOR-CONTAINER-BORDER) 1px, 
+        transparent 0);
+    background-size: 15px 15px;
+    background-position: 0 0;    
+    animation: container-anim 20s ease-in-out 0s infinite alternate forwards;
+    border: 1px solid var(--COLOR-CONTAINER-BORDER);
+}
+
+.ruleEnabled > .ruleRow > .ruleTitle {
+    font-weight: 500;
+}
+
+.subtitleHighlight {
+    color: white;
+}
+
+.input {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    border: none;
+    text-align: center;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background: none;
+    color: var(--COLOR-PRIMARY);
+}
+
+.input:focus {
+    outline: none;
+}
+.input::-webkit-inner-spin-button, 
+.input::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+
+.numButton {
+    margin: 0;
+    font-weight: 800;
+    color: var(--COLOR-PRIMARY);
+    font-size: 1rem;
+}
+
+.numInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid var(--COLOR-PRIMARY);
+    border-radius: 1rem;
+}
+
+.linkBox {
+    width: 100%;
+    color: var(--COLOR-NEUTRAL);
+    border: 1px solid var(--COLOR-NEUTRAL);
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}

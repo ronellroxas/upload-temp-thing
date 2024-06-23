@@ -1,0 +1,8 @@
+.themeToggler {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    display: flex;
+    flex-direction: row;
+    /* color: var(--COLOR-PRIMARY); */
+}
