@@ -1,0 +1,57 @@
+.fileDropArea {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    width: 90vw;
+    justify-content: center;
+    align-items: center;
+    max-height: 50vh;
+    height: 100vh;
+    border: 1px solid var(--COLOR-CONTAINER-BORDER);
+    border-radius: 1rem;
+
+    background-color: var(--COLOR-CONTAINER);
+    background-image: radial-gradient(
+        var(--COLOR-CONTAINER-BORDER) 1px, 
+        transparent 0);
+    background-size: 15px 15px;
+    background-position: 0 0;
+    animation: container-anim 30s ease-in-out 0s infinite alternate forwards;
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    .fileDropArea {
+        flex-direction: column;
+        max-height: none;
+        width: 100vw;
+        border: 0;
+    }
+}
+
+@keyframes container-anim {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50% 50%;
+    }
+}
+
+
+.dragOverlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}

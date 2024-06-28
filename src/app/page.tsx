@@ -1,35 +1,25 @@
-"use client";
-
 import styles from "./index.module.css";
-import { UploadFile } from "./_components/uploadFile/upload-file";
-import { FileListing } from "./_components/fileList/file-list";
-import { FileStats } from "./_components/fileList/file-stats";
-import { ShareButton } from "./_components/shareButton/share-button";
-import { AppToolTip } from "./_components/toolTip/tool-tip";
-import { ShareModal } from "./_components/shareModal/rules-modal";
-import { useState } from "react";
-import { ThemeToggler } from "./_components/themeToggler/theme-toggler";
+import { Navbar } from "./_components/navBar/navbar";
+import { FileDropArea } from "./_components/fileDropArea/file-drop-area";
+import { ToastList } from "./_components/toast/toast-list";
 
-export default function Home() {
-  const [showModal, setShowModal] = useState(false);
-
+export default async function Home() {
   return (
     <main className={styles.main}>
-      {showModal && 
-        <ShareModal close={() => setShowModal(false)}/>
-      }
-      <ThemeToggler />
+      <Navbar />
       <h1 className={styles.title}>
         UploadTempThing
       </h1>
       <p className={styles.subtitle}>
-        Quick and easy way to share <span className={styles.primarySpan}>temporary</span> file
+        Quick and easy way to share <span className={styles.primarySpan}>temporary</span> files
       </p>
-      <AppToolTip />
-      <UploadFile />
-      <FileStats />
-      <FileListing />
-      <ShareButton onClick={() => setShowModal(true)}/>
+      <ul className={styles.featureList}>
+        <li><span className={styles.primarySpan}>✓</span> Temporary File Storing</li>
+        <li><span className={styles.primarySpan}>✓</span> Private and Secure</li>
+        <li><span className={styles.primarySpan}>✓</span> Another Cool Thing</li>
+      </ul>
+      <FileDropArea />
+      <ToastList />
     </main>
   );
 }

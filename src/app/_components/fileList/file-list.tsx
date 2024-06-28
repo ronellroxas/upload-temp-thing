@@ -1,36 +1,36 @@
 "use client";
 
-import { useFileStore } from "~/app/_stores/file-store";
+import { FileStats } from "./file-stats";
+import { FileItem } from "./file-item";
 import styles from "./index.module.css";
-import { FileUtils } from "~/app/_utils/file-utils";
-import { useTooltipStore } from "~/app/_stores/tooltip-store";
+import { useFileStore } from "~/app/_stores/file-store";
+import { UploadFile } from "../uploadFile/upload-file";
+import { useRef } from "react";
 
 export function FileListing() {
-    const [files, remove] = useFileStore((state) => [state.files, state.remove]);
-    const [setTooltip, clearTooltip] = useTooltipStore((state) => [state.setTooltip, state.clearTooltip]);
+    const files = useFileStore((state) => state.files);
+    const uploadRef = useRef<HTMLInputElement>(null);
 
     return (
-        <>
-            {files.length > 0 &&
-                <div className={styles.fileList}>
-                    {files.map((file, i) => (
-                        <div 
-                            key={i} 
-                            className={styles.fileRow}
-                            onMouseEnter={() => setTooltip("Remove File")}
-                            onMouseLeave={() => clearTooltip()}
-                            onClick={() => remove(file)}                            
-                        >
-                            <div className={styles.fileRowOverlay}></div>
-                            <span className={styles.fileName}>{file.name}</span>
-                            <div className={styles.fileSize}>
-                                {FileUtils.formatBytesToDisplay(file.size)}MB
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            }
-        </>
-
+        <div className={styles.fileListing}>
+            <div className={styles.fileList}>
+                {files.map((file, i) => 
+                    <FileItem key={i} file={file} files={files} />
+                )}
+            </div>
+            <div className={styles.listingFooter}>
+                <span 
+                    className={styles.listingUploadLabel}
+                    onClick={() => uploadRef.current?.click()}
+                >
+                    Drop your file/s here or click here to Browse
+                </span>
+                <UploadFile 
+                    showLabel={false}
+                    inputRef={uploadRef}
+                />
+                <FileStats />
+            </div>
+        </div>
     )
 }

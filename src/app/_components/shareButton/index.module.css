@@ -1,16 +1,27 @@
+@keyframes share-button-anim {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .shareButton {
     bottom: 0;
     margin: 1rem;
+    opacity: 0;
 
     /* remove button default style */
     background-color: var(--COLOR-PRIMARY);
-	color: white;
 	border: none;
 	padding: 0.5rem 1rem;
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
     border-radius: 1.5rem;
+    animation: share-button-anim 600ms ease-in-out forwards;
+    width: fit-content;
 }
 
 .shareButton:hover {

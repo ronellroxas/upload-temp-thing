@@ -1,0 +1,97 @@
+.sidebar {
+    background-image: linear-gradient(to bottom,
+        transparent,
+        var(--COLOR-CONTAINER-BORDER));
+    width: 100%;
+    max-width: 30rem;
+    height: 100%;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        padding: 0 1rem;
+        max-width: 100%;
+    }
+}
+
+.input {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    border: none;
+    text-align: center;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background: none;
+    color: var(--COLOR-PRIMARY);
+}
+
+.input:focus {
+    outline: none;
+}
+.input::-webkit-inner-spin-button, 
+.input::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+
+.numButton {
+    margin: 0;
+    font-weight: 800;
+    color: var(--COLOR-PRIMARY);
+    font-size: 1rem;
+    margin: 0;
+    padding: 0.25rem 1rem;
+}
+
+.numInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid var(--COLOR-PRIMARY);
+    border-radius: 1rem;
+}
+
+@keyframes rule-subtitle-anim {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.ruleLabel {
+    overflow: hidden;
+    text-wrap: nowrap;
+    animation: rule-subtitle-anim 1000ms 200ms ease-out 1 forwards;
+    text-align: start;
+    width: 0;
+}
+
+@media (max-width: 600px) {
+    .ruleLabel {
+        overflow-x: auto;
+    }
+}
+
+.primarySpan {
+    color: white;
+}
+
+.ruleList {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    width: 100%;
+}

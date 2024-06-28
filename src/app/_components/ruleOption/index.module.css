@@ -1,0 +1,68 @@
+@keyframes rule-subtitle-anim {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.closeButton {
+    font-size: 0.75rem;
+    color: var(--COLOR-NEUTRAL);
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.ruleList {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.ruleOption {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--COLOR-PRIMARY);
+    padding:  1rem;
+    border-radius: 0.5rem;
+    row-gap: 0.5rem;
+    max-height: 3.5rem;
+    height: 100%;
+    transition: max-height 400ms ease-out;
+    cursor: pointer;
+}
+
+.ruleRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ruleTitle {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@keyframes container-anim {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50% 50%;
+    }
+}
+
+.ruleEnabled {
+    background-color: var(--COLOR-PRIMARY);   
+    max-height: 6rem; 
+}
+
+.ruleEnabled > .ruleRow > .ruleTitle {
+    font-weight: 500;
+}
